@@ -1,20 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-
-const URL = 'https://jsonplaceholder.typicode.com/todos'
+import useFetch from '../lib/useFetch'
 
 export default function TodoList() {
-  const [todos, settodos] = useState([])
-
-  const fetchtodos = async () => {
-    const res = await axios.get(URL)
-
-    settodos(res.data)
-  }
-
-  useEffect(() => {
-    fetchtodos()
-  }, [])
+  const todos = useFetch('/todos')
 
   return (
     <ul>

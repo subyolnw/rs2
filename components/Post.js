@@ -1,32 +1,19 @@
-import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
-import axios from 'axios'
+import CommentList from './CommentList'
 
-export default function Post() {
-  const {
-    query: { id }
-  } = useRouter()
-  const [post, setPost] = useState({})
-
-  const fetchData = async () => {
-    const url = `https://jsonplaceholder.typicode.com/posts/${id}`
-    const res = await axios.get(url)
-
-    setPost(res.data)
-  }
-
-  useEffect(() => {
-    fetchData()
-  }, [])
+export default function Post({ post }) {
+  const { id, title, body } = post
 
   return (
-    <dl>
-      <dt>ID:</dt>
-      <dd>{post.id}</dd>
-      <dt>Title:</dt>
-      <dd>{post.title}</dd>
-      <dt>Body:</dt>
-      <dd>{post.body}</dd>
-    </dl>
+    <>
+      <dl>
+        <dt>ID:</dt>
+        <dd>{id}</dd>
+        <dt>Title:</dt>
+        <dd>{title}</dd>
+        <dt>Body:</dt>
+        <dd>{body}</dd>
+      </dl>
+      <CommentList id={id}></CommentList>
+    </>
   )
 }

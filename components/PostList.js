@@ -1,25 +1,18 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import Link from 'next/link'
 
-const URL = 'https://jsonplaceholder.typicode.com/posts'
+import useFetch from '../lib/useFetch'
 
 export default function PostList() {
-  const [posts, setPosts] = useState([])
-
-  const fetchPosts = async () => {
-    const res = await axios.get(URL)
-
-    setPosts(res.data)
-  }
-
-  useEffect(() => {
-    fetchPosts()
-  }, [])
+  const posts = useFetch('/posts')
 
   return (
     <ul>
       {posts.map(post => (
-        <li key={post.id}>{post.title}</li>
+        <li key={post.id}>
+          <Link href="/posts/[id]" as={`/posts/${post.id}`}>
+            <a>{post.title}</a>
+          </Link>
+        </li>
       ))}
     </ul>
   )

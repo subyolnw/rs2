@@ -1,20 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-
-const URL = 'https://jsonplaceholder.typicode.com/users'
+import useFetch from '../lib/useFetch'
 
 export default function UserList() {
-  const [users, setusers] = useState([])
-
-  const fetchusers = async () => {
-    const res = await axios.get(URL)
-
-    setusers(res.data)
-  }
-
-  useEffect(() => {
-    fetchusers()
-  }, [])
+  const users = useFetch('/users')
 
   return (
     <ul>

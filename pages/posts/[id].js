@@ -1,11 +1,15 @@
-import Post from '../../components/Post'
+import axios from 'axios'
 
-function PostPage() {
-  return <Post></Post>
+import Post from '@components/Post'
+
+function PostPage({ post }) {
+  return <Post post={post}></Post>
 }
 
-PostPage.getInitialProps = async () => {
-  return {}
+PostPage.getInitialProps = async ctx => {
+  const res = await axios.get(`/posts/${ctx.query.id}`)
+
+  return { post: res.data }
 }
 
 export default PostPage
