@@ -1,5 +1,9 @@
 import EditPost from '@components/EditPost'
 
-export default function EditPostPage() {
+function EditPostPage() {
   return <EditPost></EditPost>
 }
+
+EditPostPage.getInitialProps = () => ({})
+
+export default EditPostPage
