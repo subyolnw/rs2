@@ -1,4 +1,4 @@
-import { Formik } from 'formik'
+import { Formik, Form, Field } from 'formik'
 import * as yup from 'yup'
 
 export default function PostForm() {
@@ -19,24 +19,13 @@ export default function PostForm() {
         touched,
         errors
       }) => (
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="title"
-            value={values.title}
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
+        <Form>
+          <Field name="title"></Field>
           {errors.title && touched.title && <div>{errors.title}</div>}
-          <textarea
-            name="body"
-            value={values.body}
-            onChange={handleChange}
-            onBlur={handleBlur}
-          ></textarea>
+          <Field name="body" component="textarea"></Field>
           {errors.body && touched.body && <div>{errors.body}</div>}
           <button type="submit">Submit</button>
-        </form>
+        </Form>
       )}
     </Formik>
   )
