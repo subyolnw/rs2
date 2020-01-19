@@ -7,13 +7,13 @@ import PostForm from './PostForm'
 
 export default function EditPost() {
   const [post, setPost] = useState()
-  const {
-    query: { id }
-  } = useRouter()
-  const path = `/posts/${id}`
+  const router = useRouter()
+  const path = `/posts/${router.query.id}`
 
   const updatePost = async post => {
-    axios.patch(path, post)
+    await axios.patch(path, post)
+
+    router.push(path)
   }
 
   const fetchPost = async () => {
