@@ -1,6 +1,6 @@
 import { List, Card } from 'antd'
 
-import useFetch from '../lib/useFetch'
+import useFetch from '../../../lib/useFetch'
 
 export default function PhotoList() {
   const photos = useFetch('/photos?_page=1')

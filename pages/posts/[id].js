@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import Post from '@components/Post'
+import Post from '@modules/posts/components/Post'
 
 function PostPage({ post }) {
   return <Post post={post}></Post>

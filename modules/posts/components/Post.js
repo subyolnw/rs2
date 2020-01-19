@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import CommentList from './CommentList'
+import CommentList from '../../comments/components/CommentList'
 
 export default function Post({ post }) {
   const { id, title, body } = post

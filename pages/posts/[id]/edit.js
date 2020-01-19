@@ -1,4 +1,4 @@
-import EditPost from '@components/EditPost'
+import EditPost from '@modules/posts/components/EditPost'
 
 function EditPostPage() {
   return <EditPost></EditPost>

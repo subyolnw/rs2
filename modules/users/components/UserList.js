@@ -1,4 +1,4 @@
-import useFetch from '../lib/useFetch'
+import useFetch from '../../../lib/useFetch'
 
 export default function UserList() {
   const users = useFetch('/users')

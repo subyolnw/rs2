@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import useFetch from '../lib/useFetch'
+import useFetch from '../../../lib/useFetch'
 
 export default function PostList() {
   const posts = useFetch('/posts')
