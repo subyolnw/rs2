@@ -7,6 +7,7 @@ const { Header, Content } = AntLayout
 
 const StyledContent = styled(Content)`
   padding: 1rem;
+  background: #fff;
 `
 
 export default function Layout({ children }) {
