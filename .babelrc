@@ -24,7 +24,8 @@
         "root": ["."],
         "alias": {
           "@modules": "./modules",
-          "@store": "./store"
+          "@store": "./store",
+          "@lib": "./lib"
         }
       }
     ]

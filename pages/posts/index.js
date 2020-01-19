@@ -1,5 +1,7 @@
 import PostList from '@modules/posts/components/PostList'
 
-export default function PostsPage() {
+function PostsPage() {
   return <PostList></PostList>
 }
+
+export default PostsPage

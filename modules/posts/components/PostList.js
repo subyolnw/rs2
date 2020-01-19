@@ -1,9 +1,23 @@
 import Link from 'next/link'
-
-import useFetch from '../../../lib/useFetch'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import * as actions from '../actions'
 
 export default function PostList() {
-  const posts = useFetch('/posts')
+  const posts = useSelector(state => state.posts)
+  const dispatch = useDispatch()
+
+  const addPost = () => {
+    const action = actions.addPost()
+
+    dispatch(action)
+  }
+
+  useEffect(() => {
+    const action = actions.fetchPosts()
+
+    dispatch(action)
+  }, [])
 
   return (
     <>
