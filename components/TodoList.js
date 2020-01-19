@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import useFetch from '../lib/useFetch'
 
 export default function TodoList() {
