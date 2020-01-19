@@ -1,4 +1,5 @@
-import { Formik, Form, Field } from 'formik'
+import { Formik } from 'formik'
+import { Form, Input, SubmitButton } from 'formik-antd'
 import * as yup from 'yup'
 
 export default function PostForm() {
@@ -11,22 +12,15 @@ export default function PostForm() {
       })}
       onSubmit={value => console.log(value)}
     >
-      {({
-        handleBlur,
-        handleChange,
-        handleSubmit,
-        values,
-        touched,
-        errors
-      }) => (
-        <Form>
-          <Field name="title"></Field>
-          {errors.title && touched.title && <div>{errors.title}</div>}
-          <Field name="body" component="textarea"></Field>
-          {errors.body && touched.body && <div>{errors.body}</div>}
-          <button type="submit">Submit</button>
-        </Form>
-      )}
+      <Form>
+        <Form.Item name="title" label="Title">
+          <Input name="title" />
+        </Form.Item>
+        <Form.Item name="body" label="Body">
+          <Input.TextArea name="body" />
+        </Form.Item>
+        <SubmitButton>Submit Di</SubmitButton>
+      </Form>
     </Formik>
   )
 }
