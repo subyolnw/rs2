@@ -1,6 +1,7 @@
 import { Layout as AntLayout, Menu } from 'antd'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
+import Link from 'next/link'
 
 const { Header, Content } = AntLayout
 
@@ -20,10 +21,26 @@ export default function Layout({ children }) {
           defaultSelectedKeys={[pathname]}
           style={{ lineHeight: '64px' }}
         >
-          <Menu.Item key="/users">Users</Menu.Item>
-          <Menu.Item key="/posts">Posts</Menu.Item>
-          <Menu.Item key="/todos">Todos</Menu.Item>
-          <Menu.Item key="/photos">Photos</Menu.Item>
+          <Menu.Item key="/users">
+            <Link href="/users">
+              <a>Users</a>
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="/posts">
+            <Link href="/posts">
+              <a>Posts</a>
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="/todos">
+            <Link href="/todos">
+              <a>Todos</a>
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="/photos">
+            <Link href="/photos">
+              <a>Photos</a>
+            </Link>
+          </Menu.Item>
         </Menu>
       </Header>
       <StyledContent>{children}</StyledContent>
