@@ -1,5 +1,16 @@
-import UserList from '../modules/users/components/UserList'
+import UserList from '@modules/users/components/UserList'
+import * as actions from '@modules/users/actions'
 
-export default function PostsPage() {
+function UsersPage() {
   return <UserList></UserList>
 }
+
+UsersPage.getInitialProps = async ({ store }) => {
+  const action = actions.fetchUsers()
+
+  await store.dispatch(action)
+
+  return {}
+}
+
+export default UsersPage

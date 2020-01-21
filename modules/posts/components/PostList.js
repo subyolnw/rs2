@@ -7,12 +7,6 @@ export default function PostList() {
   const posts = useSelector(state => state.posts)
   const dispatch = useDispatch()
 
-  const addPost = () => {
-    const action = actions.addPost()
-
-    dispatch(action)
-  }
-
   useEffect(() => {
     const action = actions.fetchPosts()
 
